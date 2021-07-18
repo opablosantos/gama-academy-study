@@ -1,15 +1,9 @@
-let resultado = fizzBuzz('pipa');
-console.log(resultado)
+let newStr = '';
 
-function fizzBuzz(entrada) {
-    if (typeof entrada !== 'number')
-        return 'não é número';
-    if((entrada%3 ==0) && (entrada%5==0))
-        return 'FizzBuzz';
-    if (entrada%3 == 0)
-        return 'Fizz';
-    if (entrada%5 == 0)
-        return 'Buzz';
-
-    return entrada;
+function reverseAString(str) {
+    for (i=str.length-1; i>= 0;i--)
+    newStr += str[i]
+    console.log(newStr)
 }
+
+let resultado = reverseAString('olá, mundo!')
