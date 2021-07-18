@@ -1,16 +1,15 @@
-var myName = "Pablo"
+let resultado = fizzBuzz('pipa');
+console.log(resultado)
 
-var age = 27
+function fizzBuzz(entrada) {
+    if (typeof entrada !== 'number')
+        return 'não é número';
+    if((entrada%3 ==0) && (entrada%5==0))
+        return 'FizzBuzz';
+    if (entrada%3 == 0)
+        return 'Fizz';
+    if (entrada%5 == 0)
+        return 'Buzz';
 
-var height = 1.76
-
-var person = {
-    "name": "Pablo",
-    "age": 27
-}
-
-var students = ["Pablo", "Joao", "Pedro"]
-
-function sum(a,b) {
-    return a+b
+    return entrada;
 }
