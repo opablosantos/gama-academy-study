@@ -1,9 +1,35 @@
-let newStr = '';
+const listContainer = document.querySelector('[data-lists]')
+const newListForm = document.querySelector('[data-new-list-form]')
+const newListInput = document.querySelector('[data-new-list-input]')
 
-function reverseAString(str) {
-    for (i=str.length-1; i>= 0;i--)
-        newStr += str[i]
-    console.log(newStr)
+let lists = []
+
+newListForm.addEventListener('submit', function(e) {
+    e.preventDefault()
+    const listName = newListInput.value
+    if (listName === null || listName === '') return
+    const list = createList(listName)
+    newListInput.value = null
+    lists.push(list)
+    render()
+})
+
+function createList(name) {
+    return {id: Date.now().toString(), name: name }
 }
 
-let resultado = reverseAString('olá, mundo!')
+function render() {
+    clearElement(listContainer)
+    lists.forEach(function(list) {
+        const item = document.createElement('li')
+        item.classList.add('item')
+        item.innerText = list.name
+        listContainer.appendChild(item)
+    })
+}
+
+function clearElement(element) {
+    while(element.firstChild) {
+        element.removeChild(element.firstChild)
+    }
+}
